@@ -97,6 +97,10 @@ function startBot() {
         if (username === bot.username) return
         const ignoredUsernames = process.env.IGNORED_USERNAMES?.split(',');
         if (ignoredUsernames?.includes(username)) return;
+
+        const ignoredWords = process.env.IGNORED_WORDS?.split(',');
+        if (ignoredWords?.some(word => message.toLowerCase().includes(word.toLowerCase()))) return;
+
         console.log(`[${username}]: ${message}`)
     })
 
