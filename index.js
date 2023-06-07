@@ -74,8 +74,11 @@ function joinWild() {
     console.log("Joining Wild Prison.")
 }
 
+function getIp() {
+    return `${process.env.HOST}${process.env.PORT === '25565' ? '' : ':' + process.env.PORT}`;
+}
+
 function startBot() {
-    const ip = `${process.env.HOST}:${process.env.PORT}`;
 
     bot = mineflayer.createBot({
         host: process.env.HOST,
@@ -86,7 +89,7 @@ function startBot() {
 
     bot.once('spawn', () => {
         console.log("Bot has logged in.")
-        joinPrison(ip);
+        joinPrison(getIp());
     })
 
     // log all chat messages
@@ -173,8 +176,7 @@ function startConsoleCommands() {
                 console.log("The following commands are available: chat <message>, execute <command>, stop, reconnect, joinprison");
                 break;
             case 'joinprison':
-                const ip = `${process.env.HOST}:${process.env.PORT}`;
-                joinPrison(ip);
+                joinPrison(getIp());
                 break;
             default:
                 if (incomingCommand.startsWith('chat')) {
