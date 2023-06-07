@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc index.ts && node index.js"
+    "start": "node index.js",
+    "docker-build": "docker build -t headless-mc-client ."
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,6 @@
     "dotenv": "^16.0.3",
     "mineflayer": "^4.5.1",
     "mineflayer-gui": "^2.1.2",
-    "mineflayer-pathfinder": "^2.4.1",
     "mineflayer-web-inventory": "^1.8.3",
     "prismarine-viewer": "^1.23.0"
   },
