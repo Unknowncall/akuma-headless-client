@@ -1,4 +1,4 @@
-const mineflayer = require('mineflayer')
+const mineflayer = require('mineflayer');
 
 require('dotenv').config();
 
@@ -33,7 +33,7 @@ function joinPrison(ip) {
                 joinAkuma();
                 break;
             case 'wild.ts':
-                
+                joinWild();
                 break;
             default:
                 console.log("No script found for server: " + ip);
