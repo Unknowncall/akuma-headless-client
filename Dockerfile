@@ -8,13 +8,10 @@ WORKDIR /usr/src/app
 
 # Copy the package.json and package-lock.json files
 COPY package.json /usr/src/app/
-COPY pnpm-lock.yaml /usr/src/app/
-
-# Install pnpm
-RUN npm install -g pnpm
+COPY package-lock.json /usr/src/app/
 
 # Install dependencies
-RUN pnpm install
+RUN npm install
 
 # Copy the rest of the files
 COPY . .
@@ -23,4 +20,4 @@ COPY . .
 EXPOSE 3000
 
 # Start the server
-CMD [ "pnpm", "start" ]
+CMD [ "npm", "start" ]
