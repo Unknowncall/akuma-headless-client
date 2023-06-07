@@ -79,7 +79,7 @@ function startBot() {
 
     bot = mineflayer.createBot({
         host: process.env.HOST,
-        port: process.env.PORT,
+        port: process.env.PORT === '25565' ? undefined : parseInt(process.env.PORT),
         auth: 'microsoft',
         version: '1.12.2'
     });
